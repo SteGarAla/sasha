@@ -1,0 +1,88 @@
+.mainContainer {
+  min-height: 100dvh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  width: 100%;
+  max-width: 560px;
+  padding: 22px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+}
+
+.header {
+  margin-bottom: 14px;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 650;
+  letter-spacing: 0.2px;
+  color: #f3f6ff;
+  text-transform: lowercase;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: rgba(243, 246, 255, 0.7);
+}
+
+.inputRow {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.input {
+  flex: 1;
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f3f6ff;
+  outline: none;
+}
+
+.input::placeholder {
+  color: rgba(243, 246, 255, 0.45);
+}
+
+.input:focus {
+  border-color: rgba(120, 160, 255, 0.75);
+  box-shadow: 0 0 0 4px rgba(120, 160, 255, 0.18);
+}
+
+.button {
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(243, 246, 255, 0.12);
+  color: #f3f6ff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: rgba(243, 246, 255, 0.18);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.hint {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: rgba(243, 246, 255, 0.55);
+}
