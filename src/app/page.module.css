@@ -1,19 +1,44 @@
+/* page.module.css (copy/paste this whole file) */
+
 .mainContainer {
   min-height: 100dvh;
   width: 100%;
   display: grid;
   place-items: center;
-  padding: 24px;
+  padding: 28px 18px;
+
+  /* Dark theme with subtle color glow */
+  background:
+    radial-gradient(
+      900px 500px at 20% 10%,
+      rgba(120, 160, 255, 0.14),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 500px at 80% 90%,
+      rgba(160, 120, 255, 0.1),
+      transparent 60%
+    ),
+    #0b1020;
+}
+
+/* Wrapper so cards are stacked with consistent spacing */
+.stack {
+  width: 100%;
+  max-width: 620px;
+  display: grid;
+  gap: 16px;
 }
 
 .card {
   width: 100%;
-  max-width: 560px;
   padding: 22px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+
+  /* Dark card, cohesive with background */
+  background: rgba(14, 19, 36, 0.72);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(10px);
 }
 
@@ -24,15 +49,24 @@
 .title {
   margin: 0;
   font-size: 22px;
-  font-weight: 650;
+  font-weight: 700;
   letter-spacing: 0.2px;
-  color: #f3f6ff;
-  text-transform: lowercase;
+  color: rgba(243, 246, 255, 0.96);
+  text-transform: none;
+}
+
+.titleSmall {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: rgba(243, 246, 255, 0.96);
 }
 
 .subtitle {
   margin: 6px 0 0;
   font-size: 14px;
+  line-height: 1.4;
   color: rgba(243, 246, 255, 0.7);
 }
 
@@ -44,13 +78,19 @@
 
 .input {
   flex: 1;
-  height: 44px;
-  padding: 0 12px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  height: 46px;
+  padding: 0 14px;
+  border-radius: 14px;
+
   background: rgba(255, 255, 255, 0.06);
-  color: #f3f6ff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(243, 246, 255, 0.92);
+
   outline: none;
+  transition:
+    box-shadow 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
 }
 
 .input::placeholder {
@@ -58,23 +98,31 @@
 }
 
 .input:focus {
-  border-color: rgba(120, 160, 255, 0.75);
-  box-shadow: 0 0 0 4px rgba(120, 160, 255, 0.18);
+  border-color: rgba(120, 160, 255, 0.7);
+  box-shadow: 0 0 0 4px rgba(120, 160, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .button {
-  height: 44px;
-  padding: 0 14px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(243, 246, 255, 0.12);
-  color: #f3f6ff;
-  font-weight: 600;
+  height: 46px;
+  padding: 0 16px;
+  border-radius: 14px;
+
+  border: 1px solid rgba(120, 160, 255, 0.35);
+  background: rgba(120, 160, 255, 0.18);
+  color: rgba(243, 246, 255, 0.95);
+
+  font-weight: 700;
   cursor: pointer;
+  transition:
+    transform 120ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
 }
 
 .button:hover {
-  background: rgba(243, 246, 255, 0.18);
+  background: rgba(120, 160, 255, 0.26);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
 }
 
 .button:active {
@@ -85,4 +133,88 @@
   margin: 10px 0 0;
   font-size: 12px;
   color: rgba(243, 246, 255, 0.55);
+}
+
+/* Result UI */
+.resultBox {
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.resultMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 10px;
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(243, 246, 255, 0.92);
+
+  background: rgba(120, 160, 255, 0.18);
+  border: 1px solid rgba(120, 160, 255, 0.25);
+}
+
+.resultHint {
+  font-size: 12px;
+  color: rgba(243, 246, 255, 0.55);
+}
+
+.resultLink {
+  display: block;
+  padding: 12px;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  color: rgba(243, 246, 255, 0.95);
+  text-decoration: none;
+
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+
+  transition:
+    box-shadow 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.resultLink:hover {
+  border-color: rgba(120, 160, 255, 0.45);
+  box-shadow: 0 0 0 4px rgba(120, 160, 255, 0.12);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* Mobile polish */
+@media (max-width: 520px) {
+  .inputRow {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .resultMeta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
